@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ChuChuFly | Add Flight</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script src="js/modernizr-2.6.2.min.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet">
+	<script type="text/javascript" src="js/BusinessObjects/flight.js"></script>
+</head>
+<body>
+<style type="text/css">
+	body {
+	background-image:url(images/slide_2.jpeg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	margin:0;
+	}
+</style>
+<div id="menu"></div>
+<aside>
+	<div class="animate-box">
+		<br>
+		<div class="col-md-4 col-md-offset-4" style="background-color: rgba(0,0,0,.5);">
+			<div class="col-md-12">
+				<div class="form-check">
+					<label class="white_label">Type:</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input class="form-check-input" type="radio"  value="visit" id="visit" checked="true" name="typeFlight" onclick="visitDetect()"/>
+					<label class="form-check-label" for="visit" style="color: white;"/>
+					Visit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input class="form-check-input" type="radio" value="oneway" id="oneway" name="typeFlight" onclick="visitDetect()" />
+					<label class="form-check-label" for="oneway" style="color: white;"/>
+					One way flight
+					</label>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="white_label" for="plane">Plane:</label>
+					<input type="text" id="plane" class="form-control mr-sm-2 home_input" placeholder="Add Plane">
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="white_label" for="departureAirfield">Departure Airfield:</label>
+					<input type="text" id="departureAirfield"  class="form-control mr-sm-2 home_input"  placeholder="Departure Airfield"/>
+				</div>
+			</div>
+			<div class="col-md-12" id="ArrivalA2">
+				<div class="form-group" >
+					<label class="white_label" for="arrivalAirfield">Arrival Airfield:</label>
+					<input type="search" id="arrivalAirfield" class="form-control mr-sm-2 home_input"  placeholder="Arrival Airfield"/>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="white_label" for="departureDate">Date:</label>
+					<input  type="date" id="departureDate" class="form-control mr-sm-2 home_input" placeholder="Departure date"/>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="white_label" for="departureTime">Departure Time:</label>
+					<input type="time" id="departureTime" class="form-control mr-sm-2 home_input" placeholder="Departure time"/>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group" >
+					<label class="white_label" for="arrivalTime">Arrival Time:</label>
+					<input type="time" id="arrivalTime" class="form-control mr-sm-2 home_input"  placeholder="Arrival time"/>
+				</div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="white_label" for="allSeats">Number Of Seats:</label>
+					<input type="number" min="0" max="15" id="allSeats" class="form-control mr-sm-2 home_input"  placeholder="nb of seats"/>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="white_label" for="price">Price:</label>
+					<input type="number" min="0" max="15" id="price" class="form-control mr-sm-2 home_input"  placeholder="Price"/>
+				</div>
+			</div>
+			<br>
+			<div class="col-md-12">
+				<div class="form-group">
+					<center>
+						<a class="btn btn-primary " onclick="ajouter()"> Save </a>
+						<a class="btn btn-warning " id="Cancel"> Cancel </a>
+					</center>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	</div>
+	<br>
+</aside>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Owl Carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+
+	<!-- MAIN JS -->
+	<script src="js/main.js"></script>
+	</body>
+</html>
